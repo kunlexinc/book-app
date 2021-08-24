@@ -20,8 +20,12 @@ class HomePage extends Component{
           const allBooks = await BooksAPI.getAll();
 
           this.setState({ allBooks });
+      
+      console.log(allBooks)
 
   	}
+  
+  	
   
 	render(){
       	return(
@@ -32,15 +36,15 @@ class HomePage extends Component{
                 <h1>MyReads</h1>
               </div>
               <div className="list-books-content">
-                <Categories name='Currently Reading'/>
+                <Categories name='Currently Reading' books={this.state.allBooks}/>
               </div>
           
               <div className="list-books-content">
-                 <Categories name='Want to Read'/>
+                 <Categories name='Want to Read' books={this.state.allBooks}/>
               </div>
           
               <div className="list-books-content">
-                  <Categories name='Reading'/>
+                  <Categories name='Reading' books={this.state.allBooks}/>
               </div>
               <div className="open-search">
                 <Link className='btn' to='/search'>Add a book</Link>
